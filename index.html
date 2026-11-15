@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ---- Edit these to match your brand ---- */
+  :root {
+    --bg: #f5e6e1;      /* background; matches the blush FAQ band */
+    --ink: #2b0f0e;     /* answer text */
+    --accent: #3a1212;  /* questions, plus/minus icon */
+    --line: rgba(58, 18, 18, 0.25);
+    --font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); }
+  body { font-family: var(--font); color: var(--ink); padding: 8px 4px; }
+
+  .faq { max-width: 760px; margin: 0 auto; }
+
+  details { border-bottom: 1px solid var(--line); }
+  details:first-child { border-top: 1px solid var(--line); }
+
+  summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    flex: none;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1;
+  }
+  details[open] summary::after { content: "\2013"; }
+  summary:hover { opacity: 0.8; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .answer {
+    padding: 0 4px 18px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 62ch;
+    animation: fade 0.2s ease-out;
+  }
+  .answer p { margin: 0; }
+
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .answer { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="faq">
+
+    <details>
+      <summary>What's not included in the project?</summary>
+      <div class="answer"><p>We do not include the purchase of your domain name, stock art, font licenses, media, printing costs, hosting, or premium plugins. If your site would benefit from stock imagery, you can purchase a stock image package. We can also recommend a brand photographer for you.</p></div>
+    </details>
+
+    <details>
+      <summary>Who provides the website photos?</summary>
+      <div class="answer"><p>The client is responsible for providing photos for the website. We can recommend photographers or stock imagery.</p></div>
+    </details>
+
+    <details>
+      <summary>Do you build accessible websites?</summary>
+      <div class="answer"><p>Our custom websites are built to WCAG 2.1 AA standards with ADA compliance in mind. We care deeply about web accessibility. Some accessibility improvements may qualify for tax credits or deductions. Please talk to your accountant for details.</p></div>
+    </details>
+
+    <details>
+      <summary>What about hosting &amp; web maintenance?</summary>
+      <div class="answer"><p>After a web project launches, we offer ongoing site maintenance and hosting. The cost is quoted per individual project.</p></div>
+    </details>
+
+    <details>
+      <summary>How do you handle project management?</summary>
+      <div class="answer"><p>We use an app called Asana to organize our tasks, due dates, and conversations. When we start the project, we'll send you an Asana invite.</p></div>
+    </details>
+
+  </div>
+
+<script>
+  // Keep only one item open at a time so the iframe height stays predictable.
+  (function () {
+    var items = document.querySelectorAll('details');
+    items.forEach(function (d) {
+      d.addEventListener('toggle', function () {
+        if (!d.open) return;
+        items.forEach(function (o) { if (o !== d) o.open = false; });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
